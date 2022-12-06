@@ -1,15 +1,14 @@
 import { useState } from "react";
 const Landing = () => {
-  const [todo, setTodo] = useState({});
+  const [todo, setTodo] = useState([]);
   const [valueTodo, setValueTodo] = useState("");
   const [btn, setBtn] = useState(false);
 
   const addHandler = (event) => {
-    const t = event.target.value;
     if (event.code === "Enter") {
-      setTodo((prev) => ({ t, ...prev }));
+      setTodo([...todo, { todo: event.target.value, done: false }]);
+      setValueTodo("");
     }
-    console.log(todo);
   };
 
   return (
@@ -35,6 +34,16 @@ const Landing = () => {
             Add Todo
           </span>
         </div>
+
+        <ul className="mt-5 rounded-md py-6">
+          {todo.map((value) => {
+            return (
+              <li className="bg-white w-full flex mb-3 p-3 rounded-md">
+                {value.todo}
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </div>
   );
