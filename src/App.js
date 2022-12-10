@@ -1,10 +1,10 @@
 import "./App.css";
-import Landing from "./Components/Landing";
+import Todo from "./Components/Todo";
 
 function App() {
   return (
-    <div className="App bg-red-400 h-screen ">
-      <Landing />
+    <div className="App bg-[#181824] h-screen ">
+      <Todo />
     </div>
   );
 }

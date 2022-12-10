@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "Monda";
+    src: url("./fonts/Monda-Regular.ttf") format("truetype");
+  }
+}
+
+@layer base {
+  @font-face {
+    font-family: "Monda-Black";
+    src: url("./fonts/Monda-Bold.ttf") format("truetype");
+  }
+}

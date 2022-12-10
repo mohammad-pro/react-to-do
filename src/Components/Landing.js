@@ -6,7 +6,10 @@ const Landing = () => {
 
   const addHandler = (event) => {
     if (event.code === "Enter") {
-      setTodo([...todo, { todo: event.target.value, done: false }]);
+      setTodo([
+        ...todo,
+        { todo: event.target.value, done: false, id: todo.length + 1 },
+      ]);
       setValueTodo("");
     }
   };
@@ -38,7 +41,15 @@ const Landing = () => {
         <ul className="mt-5 rounded-md py-6">
           {todo.map((value) => {
             return (
-              <li className="bg-white w-full flex mb-3 p-3 rounded-md">
+              <li
+                className="bg-white w-full flex mb-3 p-3 rounded-md cursor-pointer"
+                onClick={() => {
+                  const test = todo.filter((f) => {
+                    return f.id !== value.id;
+                  });
+                  setTodo([...test]);
+                }}
+              >
                 {value.todo}
               </li>
             );
